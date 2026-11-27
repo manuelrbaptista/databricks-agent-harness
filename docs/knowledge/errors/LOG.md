@@ -151,16 +151,18 @@ seen: 1
 ---
 date: 2026-11-27 13:45
 area: github-pr-flow
-status: open
-seen: 1
+status: fixed-in-skill
+seen: 2
 ---
 
-# GitHub reported no CI checks for the US00 pull request
+# GitHub reported no CI checks for pull requests
 
-- Symptom: `gh pr checks` returned `no checks reported` for PR #19; the Actions API showed no runs.
+- Symptom: `gh pr checks` returned `no checks reported` for PR #19 and again for PR #20; the Actions API showed no runs for the earlier occurrence.
 - Cause: unknown. Actions are enabled and the CI workflow file exists on the default branch, but no run was visible.
-- Fix: none yet; do not claim CI passed or trigger an alternate workflow to bypass the missing checks.
+- Fix: Added guidance to report missing checks and stop without claiming CI passed or triggering an alternate workflow. The actual CI trigger remains unresolved.
 - Prevention: Update `skills/github/github-pr-flow/SKILL.md` with the safe response when a PR has no reported checks.
+- Seen again: 2026-11-27, `gh pr checks 20 --watch` reported `no checks reported` for the error-log consolidation PR.
+- Commit: [df1215f](https://github.com/manuelrbaptista/databricks-agent-harness/commit/df1215f)
 
 ---
 
