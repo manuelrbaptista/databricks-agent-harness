@@ -63,7 +63,7 @@ Grouped by tool. Delete the groups you do not use.
 
 ## Knowledge (`docs/knowledge/`)
 
-- `docs/knowledge/errors/` (one file per problem; `docs/knowledge/errors/LOG.md` is the history), `docs/knowledge/decisions/LOG.md`, `docs/knowledge/learnings/`.
+- `docs/knowledge/errors/LOG.md` (canonical error log), `docs/knowledge/decisions/LOG.md`, `docs/knowledge/learnings/`.
 
 ## Docs and labs
 

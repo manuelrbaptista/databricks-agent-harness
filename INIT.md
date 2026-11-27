@@ -44,7 +44,7 @@ O fork de um repositório público também é público. Nunca grave credenciais,
 2. Antes de começar, verifique tudo sem alterar nada e mostre um plano único: o que já está feito, o que vai instalar ou criar e onde. Espere um "sim". Peça novo "sim" se o plano mudar.
 3. Os logins e autorizações no navegador são do aluno. Nunca peça, mostre ou grave tokens.
 4. Se algo estiver bloqueado, pare e explique. Não contorne bloqueios (skill `environment-setup`).
-5. Registe cada falha em `docs/knowledge/errors/`, um ficheiro por problema (skill `self-improvement`).
+5. Registe cada falha em `docs/knowledge/errors/LOG.md`, seguindo a skill `self-improvement`.
 6. Não faça commit nem push durante a inicialização.
 
 ## Passo 1: ferramentas

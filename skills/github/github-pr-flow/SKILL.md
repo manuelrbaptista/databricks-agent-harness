@@ -15,7 +15,7 @@ description: Use when committing, pushing, opening or updating a pull request, o
 3. Read `git diff` and `git status` before committing: no debug output, unrelated files, secrets or personal data.
 4. Commit small and often. Message: imperative sentence saying what and why.
 5. Push the branch and open a pull request in the user's fork (`--repo`). Fill every section of `.github/pull_request_template.md`, briefly. State honestly how AI was used.
-6. Wait for CI. If CI fails, read the log, fix the cause, push again. Do not disable a check to get green.
+6. Wait for CI. If CI fails, read the log, fix the cause, push again. Do not disable a check to get green. If `gh pr checks` reports no checks, do not claim CI passed or trigger an alternate workflow; check whether an Actions run exists, report the missing checks, and stop for human guidance.
 7. A human reviews and merges. You do not merge your own pull request.
 
 Typical lint failures: unused import, unsorted imports, missing newline at end of file, line too long. `ruff check --fix` solves most of them; review the diff afterwards.
