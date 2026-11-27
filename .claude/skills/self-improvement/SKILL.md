@@ -10,25 +10,21 @@ The harness only gets better if every failure leaves a trace. Follow this loop.
 
 ## 1. Log every error (immediately)
 
-When a command fails, an instruction is wrong, a skill is missing, or the user corrects you, record it before doing anything else. **One file per problem** in `docs/knowledge/errors/`, named `YYYY-MM-DD-HHMM-<area>-<short-slug>.md`. Separate files avoid merge conflicts when several people and agents write.
+When a command fails, an instruction is wrong, a skill is missing, or the user corrects you, record it in `docs/knowledge/errors/LOG.md` before doing anything else. This is the canonical log; do not create individual error files.
 
 ```
----
-date: 2026-11-27 14:05
-area: databricks-cli-auth
-status: open
-seen: 1
----
+## YYYY-MM-DD HH:MM — One line saying what went wrong
 
-# One line saying what went wrong
-
+- Area: databricks-cli-auth
+- Status: open
+- Seen: 1
 - Symptom: what you saw (exact error text, trimmed)
 - Cause: what actually caused it (write "unknown" if you do not know)
 - Fix: what worked (or "none yet")
 - Prevention: which file should change so this never repeats
 ```
 
-`status` is `open`, `fixed-in-skill` or `wont-fix`. Before creating a file, search the folder, including the old `LOG.md`, for the same symptom. If it exists, do not duplicate it: increase `seen` and add a line `- Seen again: <date>, <context>`. For an entry that is only in `LOG.md`, create its file with the new count and say which entry it continues. `LOG.md` is history: never edit or append to it.
+`status` is `open`, `fixed-in-skill` or `wont-fix`. Before adding an entry, search `LOG.md` for the same symptom. If it exists, increase `Seen` and add a line `- Seen again: <date>, <context>` to that entry; otherwise append a new entry. Do not store secrets, tokens, workspace URLs of other people, or personal data.
 
 ## 2. Capture learnings
 
@@ -36,7 +32,7 @@ A learning is something true and reusable that is not an error: a limit, a worki
 
 ## 3. Close the loop
 
-- `seen` reaches 2, or the user asks: stop and fix the cause. Edit the skill, agent or `AGENTS.md`. Show the diff, wait for approval, commit on a branch named `harness/<short-topic>`. Set the error file to `status: fixed-in-skill` and link the commit.
+- `Seen` reaches 2, or the user asks: stop and fix the cause. Edit the skill, agent or `AGENTS.md`. Show the diff, wait for approval, commit on a branch named `harness/<short-topic>`. Set the log entry to `Status: fixed-in-skill` and link the commit.
 - After editing a source file run `python scripts/sync_agent_folders.py` and `python scripts/check_repo_map.py`.
 - At the end of each task run `/retro` (`prompts/retro.md`).
 

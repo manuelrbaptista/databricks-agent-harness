@@ -5,6 +5,6 @@ description: Take a GitHub issue to a branch with a plan.
 Start working on issue $ARGUMENTS.
 
 0. Follow skill `github-board-flow`: move the card at each stage and wait for the approvals. Use `--repo` with my fork.
-1. Read the issue and the open entries in `docs/knowledge/errors/` for the same area.
+1. Read the issue and the open entries in `docs/knowledge/errors/LOG.md` for the same area.
 2. Propose a branch name and a plan of at most six steps, including the tests you will write first.
 3. Wait for my yes. Then create the branch and begin with the first test.
